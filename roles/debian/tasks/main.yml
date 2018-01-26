@@ -1,0 +1,18 @@
+---
+# tasks file for debian
+- name: Install debian vsftpd
+  apt:
+   name: vsftpd
+   state: present
+
+- name: enable vsftpd
+  service:
+   name: vsftpd
+   state: started
+   enabled: YES
+
+- name: Configure debian vsftpd file
+  template:
+   src: vsftpd.conf.j2
+   dest: /etc/vsftpd.conf
+

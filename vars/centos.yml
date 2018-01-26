@@ -1,0 +1,4 @@
+---
+packager: vsftpd
+config_path: /etc/vsftpd/vsftpd.conf
+os_distribution: RedHat

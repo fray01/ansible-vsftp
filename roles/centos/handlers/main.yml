@@ -1,0 +1,13 @@
+- name: restart vsftpd
+  service:
+   name: vsftpd
+   state: started
+   enabled: YES
+
+- name: Allow FTP service
+  command: firewalld-cmd --add-service=ftp
+
+- name: Reload firewalld
+  service:
+   name: firewalld
+   state: restarted

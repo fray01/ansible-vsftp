@@ -1,0 +1,18 @@
+---
+# Install vsftpd.
+
+- name: Install CentOS vsftpd
+  yum: 
+   name: vsftpd
+   state: present
+
+- name: enable vsftpd
+  service:
+   name: vsftpd
+   state: started
+   enabled: YES
+
+- name: Configure CentOS vsftpd file
+  template: 
+   src: vsftpd.conf.j2
+   dest: /etc/vsftpd/vsftpd.conf

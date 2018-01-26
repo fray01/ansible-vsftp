@@ -1,0 +1,31 @@
+---
+# tasks file for '{{ os_distribution }}'
+ - name: loading variables mention on file {{ os_distribution }}.yml
+   include_vars: "{{ item }}"
+   with_first_found:
+    - centos.yml
+    - debian.yml
+
+ - name: install {{ ansible_os_family }} vsftpd package
+   package:  
+    name: '{{ packager }}'
+    state: present
+
+ - name: enable vsftpd
+   service:
+    name: vsftpd
+    state: started
+    enabled: YES
+
+ - name: Configure {{ ansible_os_family }} vsftpd file
+   template:
+    src: vsftpd.conf.j2
+    dest: "{{ config_path }}"
+
+ - name: vsftpd user directory configuration
+   include_tasks: ftpconfig.yml
+   with_items: "{{ vsftp_users }}"
+
+ - name: create vstpd user
+   include_tasks: ftpuser.yml
+   with_items: "{{ vsftp_users }}"

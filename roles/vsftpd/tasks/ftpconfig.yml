@@ -1,0 +1,23 @@
+---
+# vsFTPd setup
+
+- name: Create the FTP system group '{{ vsftpd_group }}'
+  group: 
+    name: "{{ vsftpd_group }}"
+    state: present
+
+#- name: Create the FTP system user '{{ vsftpd_user }}'
+#  user:
+#    name: {{ vsftpd_user }}
+ #   group: {{ vsftpd_group }}
+  #  home: /dev/null 
+   # shell: /sbin/nologin
+    #state: present
+
+#- name: Create FTP server root directory '{{ vsftpd_root }}'
+#  file:
+#    dest: {{ vsftpd_path }}
+#    mode: 0755
+ #   state: directory 
+  #  owner: {{ vsftpd_user }}
+   # group: {{ vsftpd_group }}

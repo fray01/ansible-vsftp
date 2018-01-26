@@ -1,0 +1,9 @@
+---
+# 
+- name: configure and deploy  vsftpd
+  hosts: localhost
+  gather_facts: True
+  vars_files:
+    - [ "vars/centos.yml", "vars/debian.yml" ]
+  roles:
+     - vsftpd

@@ -1,0 +1,13 @@
+vsftpd_user: "ftp"
+vsftpd_group: "ftp"
+vsftpd_path: "/var/vsftpd"
+group_id: 48 
+user_id: 48
+vsftp_users:
+  - name: vsftpd
+    _name: "{{ vsftpd_user }}"
+    dir: "{{ vsftpd_path }}"
+    group: "{{ vsftpd_group }}"
+    password: "pa$$w0rd"
+    group_id: "{{ group_id }}"
+    user_id: "{{ user_id }}"
