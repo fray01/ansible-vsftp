@@ -1,6 +1,6 @@
 vsftpd_user: "ftp"
 vsftpd_group: "ftp"
-vsftpd_path: "/var/vsftpd"
+vsftpd_path: "/etc/vsftpd/"
 group_id: 48 
 user_id: 48
 vsftp_users:

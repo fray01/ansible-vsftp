@@ -11,16 +11,11 @@
     name: '{{ packager }}'
     state: present
 
- - name: enable vsftpd
-   service:
-    name: vsftpd
-    state: started
-    enabled: YES
-
  - name: Configure {{ ansible_os_family }} vsftpd file
    template:
-    src: vsftpd.conf.j2
+    src: templates/vsftpd.conf.j2
     dest: "{{ config_path }}"
+  #  mode: 0755
 
  - name: vsftpd user directory configuration
    include_tasks: ftpconfig.yml
@@ -29,3 +24,14 @@
  - name: create vstpd user
    include_tasks: ftpuser.yml
    with_items: "{{ vsftp_users }}"
+
+ - name: enable vsftpd
+   service:
+    name: vsftpd
+    state: started
+    enabled: YES
+
+ - name: start service vsftpd
+   service:
+    name: vsftpd
+    state: restarted

@@ -1,4 +1,4 @@
 ---
 packager: vsftpd
-config_path: /etc/vsftpd.conf
+config_path: /etc/
 os_distribution: Debian

@@ -1,3 +1,8 @@
 ---
 - name: Create  vsFTPd user "{{ item._name }}"
-  command: useradd "{{ item._name }}" -g "{{ vsftpd_group }}" -d "{{ item.dir | default(vsftpd_path ) }}" -m
+  user: 
+    name: "{{ item._name }}"
+    group: "{{ vsftpd_group }}"
+    home: "{{ item.dir | default(vsftpd_path) }}"
+ # command: useradd "{{ item._name }}" -g "{{ vsftpd_group }}" -d "{{ item.dir | default(vsftpd_path) }}" -m
+
