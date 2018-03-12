@@ -1,7 +1,0 @@
----
-# handlers file for debian
-- name: restart vsftpd
-  service:
-   name: vsftpd
-   state: started
-   enabled: YES
